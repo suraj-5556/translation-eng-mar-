@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>English → Marathi Translator</title>
+<link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+<div class="container">
+<h1>English → Marathi Translator</h1>
+<form method="post" action="/translate" class="card">
+<label for="model_choice">Model</label>
+<select id="model_choice" name="model_choice">
+<option value="en-dec" {{ 'selected' if model_choice=='en-dec' else '' }}>en-dec (developed by me)</option>
+<option value="transformer-finetuned" {{ 'selected' if model_choice=='transformer-finetuned' else '' }}>transformer (fine-tuned by me)</option>
+<option value="transformer-pretrained" {{ 'selected' if model_choice=='transformer-pretrained' else '' }}>transformer (pretrained en→mr)</option>
+</select>
+
+
+<label for="text">Input (English)</label>
+<textarea id="text" name="text" rows="5" placeholder="Type English here...">{{ input_text }}</textarea>
+
+
+<button type="submit">Translate</button>
+</form>
+
+
+<div class="card">
+<h2>Prediction</h2>
+{% if output %}
+<p class="output">{{ output }}</p>
+{% else %}
+<p class="muted">Translation will appear here.</p>
+{% endif %}
+</html>
