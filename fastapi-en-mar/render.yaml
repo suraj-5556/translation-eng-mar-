@@ -1,0 +1,19 @@
+- type: web
+name: en-mar-fastapi
+env: python
+plan: free
+buildCommand: pip install -r requirements.txt
+startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+envVars:
+- key: HF_HOME
+value: /opt/render/.cache/huggingface
+- key: ENG_MAX_LEN
+value: "47"
+- key: MAR_MAX_LEN_INPUT
+value: "35"
+- key: HF_FINETUNED_MODEL
+value: suraj5556/transformer-en-mar
+- key: HF_FINETUNED_TOKENIZER
+value: suraj5556/tokenizer-en-mar
+- key: HF_PRETRAINED_MODEL
+value: Helsinki-NLP/opus-mt-en-mr
