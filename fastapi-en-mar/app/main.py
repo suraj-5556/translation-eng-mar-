@@ -15,7 +15,7 @@ app.mount("/static", StaticFiles(directory="app/static"), name="static")
 # ------------------ Load Models ------------------
 
 # 1. Encoder-Decoder model (your custom model)
-with open("app\models\model.pkl", "rb") as f:
+with open("https://github.com/suraj-5556/translation-eng-mar-/releases/download/v1.0/en-dec._model.h5", "rb") as f:
     model_ed = pickle.load(f)
 # model_ed = load_model("(en-dec)_model.h5")
 with open("app\models\english.pkl", "rb") as f:
@@ -94,3 +94,4 @@ async def translate(request: Request,
         "result": result,
         "model_choice": model_choice
     })
+
